@@ -8,3 +8,8 @@ name = "sc"
 readme = "README.md"
 repository = "https://github.com/japaric/syscall.rs"
 version = "0.2.2"
+
+[build-dependencies]
+cc = "1.0.37"
+rustc_version = "0.2.3"
+target_build_utils = "0.3.1"

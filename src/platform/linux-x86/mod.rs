@@ -11,6 +11,7 @@
 
 pub mod nr;
 
+#[cfg(asm)]
 #[inline(always)]
 pub unsafe fn syscall0(mut n: usize) -> usize {
     asm!("int $$0x80"
@@ -21,6 +22,7 @@ pub unsafe fn syscall0(mut n: usize) -> usize {
     n
 }
 
+#[cfg(asm)]
 #[inline(always)]
 pub unsafe fn syscall1(mut n: usize, a1: usize) -> usize {
     asm!("int $$0x80"
@@ -31,6 +33,7 @@ pub unsafe fn syscall1(mut n: usize, a1: usize) -> usize {
     n
 }
 
+#[cfg(asm)]
 #[inline(always)]
 pub unsafe fn syscall2(mut n: usize, a1: usize, a2: usize) -> usize {
     asm!("int $$0x80"
@@ -41,6 +44,7 @@ pub unsafe fn syscall2(mut n: usize, a1: usize, a2: usize) -> usize {
     n
 }
 
+#[cfg(asm)]
 #[inline(always)]
 pub unsafe fn syscall3(mut n: usize, a1: usize, a2: usize, a3: usize) -> usize {
     asm!("int $$0x80"
@@ -51,6 +55,7 @@ pub unsafe fn syscall3(mut n: usize, a1: usize, a2: usize, a3: usize) -> usize {
     n
 }
 
+#[cfg(asm)]
 #[inline(always)]
 pub unsafe fn syscall4(mut n: usize,
                        a1: usize,
@@ -66,6 +71,7 @@ pub unsafe fn syscall4(mut n: usize,
     n
 }
 
+#[cfg(asm)]
 #[inline(always)]
 pub unsafe fn syscall5(mut n: usize,
                        a1: usize,
@@ -82,6 +88,7 @@ pub unsafe fn syscall5(mut n: usize,
     n
 }
 
+#[cfg(asm)]
 #[inline(always)]
 pub unsafe fn syscall6(n: usize,
                        a1: usize,

@@ -10,9 +10,8 @@
 //! Raw system calls for Rust.
 
 // Reference http://man7.org/linux/man-pages/man2/syscall.2.html
-
 #![deny(warnings)]
-#![feature(asm)]
+#![cfg_attr(asm, feature(asm))]
 #![no_std]
 
 #[cfg(test)]
@@ -21,6 +20,38 @@ extern crate std;
 pub use platform::*;
 
 pub mod macros;
+
+#[cfg(native)]
+extern "C" {
+    pub fn syscall0(n: usize) -> usize;
+    pub fn syscall1(n: usize, a1: usize) -> usize;
+    pub fn syscall2(n: usize, a1: usize, a2: usize) -> usize;
+    pub fn syscall3(n: usize, a1: usize, a2: usize, a3: usize) -> usize;
+    pub fn syscall4(n: usize, a1: usize, a2: usize, a3: usize, a4: usize) -> usize;
+    pub fn syscall5(n: usize, a1: usize, a2: usize, a3: usize, a4: usize, a5: usize) -> usize;
+    pub fn syscall6(
+        n: usize,
+        a1: usize,
+        a2: usize,
+        a3: usize,
+        a4: usize,
+        a5: usize,
+        a6: usize,
+    ) -> usize;
+}
+#[cfg(all(native, target_os = "linux", target_arch = "arm"))]
+extern "C" {
+    pub fn syscall7(
+        n: usize,
+        a1: usize,
+        a2: usize,
+        a3: usize,
+        a4: usize,
+        a5: usize,
+        a6: usize,
+        a7: usize,
+    ) -> usize;
+}
 
 #[cfg(all(target_os = "linux",
           target_arch = "aarch64"))]
