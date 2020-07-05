@@ -12,7 +12,7 @@
 #![crate_name="syscall"]
 #![crate_type="lib"]
 
-#![feature(asm)]
+#![feature(llvm_asm)]
 #![deny(warnings)]
 #![no_std]
 #![allow(unused_mut)]
